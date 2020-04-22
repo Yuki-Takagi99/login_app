@@ -1,4 +1,14 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+<p>お気に入りされた数: <%= @favorited_total_counts %></p>
+
+<p>お気に入りブログ一覧:</p>
+<% @user.favorite_blogs.each do |blog| %>
+  <br>
+  <p>タイトル：<%= blog.title %></p>
+  <p>内容：<%= blog.content %></p>
+  <p>投稿ユーザー：<%= blog.user.name %></p>
+  <br>
+<% end %>
 
 <%= link_to '新規ブログ投稿', new_blog_path %>
